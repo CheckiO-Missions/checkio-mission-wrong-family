@@ -1,0 +1,79 @@
+<div class="story">
+    <p>
+        Michael was always knew that there are something wrong with his family. So he found a very old and pretty heavy book that listen all the relationships in his family. Help Mike to figure out is there any strange things in the book.
+    </p>
+</div>
+
+<p>
+    You have list of family relationships between father and son. Every element of this list has two elements. First is father's name, second is son’s name. All names in Mike’s family are unique.
+</p>
+
+<p><strong>Input: </strong>list of list. Every element has two strings. List has at least one element</p>
+
+<p><strong>Output: </strong>bool. True - if all the relationships has their own place on the family tree where only one person doesn't have a father listened in this book.</p>
+
+<div class="for_info_only">
+    <p><strong>Example:</strong></p>
+<pre class="brush: python">{% if interpreter.slug == "js-node" %}
+isFamily([
+  ['Logan', 'Mike']
+]) == true
+isFamily([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack']
+]) == true
+isFamily([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Alexander']
+]) == true
+isFamily([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Logan']
+]) == false  // Can you be a father for your father?
+isFamily([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Jack']
+]) == false  // Can you be a father for your brather?
+isFamily([
+  ['Logan', 'William'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Alexander']
+]) == false  // Looks like Mike is stranger in Logan's family
+{% else %}
+is_family([
+  ['Logan', 'Mike']
+]) == True
+is_family([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack']
+]) == True
+is_family([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Alexander']
+]) == True
+is_family([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Logan']
+]) == False  # Can you be a father for your father?
+is_family([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Jack']
+]) == False  # Can you be a father for your brather?
+is_family([
+  ['Logan', 'William'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Alexander']
+]) == False  # Looks like Mike is stranger in Logan's family
+{% endif %}</pre>
+</div>
+<br />
+<p>
+    <strong>Precondition:</strong>
+    <i>1 <= len(tree) < 100</i>
+</p>
