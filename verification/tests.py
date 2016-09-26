@@ -13,14 +13,16 @@ TESTS = {
             "input": [
               ['Logan', 'Mike']
             ],
-            "answer": True
+            "answer": True,
+            "explanation": "One father, one son"
         },
         {
             "input": [
               ['Logan', 'Mike'],
               ['Logan', 'Jack']
             ],
-            "answer": True
+            "answer": True,
+            "explanation": "Two sons"
         },
         {
             "input": [
@@ -28,7 +30,8 @@ TESTS = {
               ['Logan', 'Jack'],
               ['Mike', 'Alexander']
             ],
-            "answer": True
+            "answer": True,
+            "explanation": "Grandfather"
         },
         {
             "input": [
@@ -36,7 +39,8 @@ TESTS = {
               ['Logan', 'Jack'],
               ['Mike', 'Logan']
             ],
-            "answer": False
+            "answer": False,
+            "explanation": "Can you be a father for your father?"
         },
         {
             "input": [
@@ -44,7 +48,8 @@ TESTS = {
               ['Logan', 'Jack'],
               ['Mike', 'Jack']
             ],
-            "answer": False
+            "answer": False,
+            "explanation": "Can you be a father for your brather?"
         },
         {
             "input": [
@@ -52,7 +57,38 @@ TESTS = {
               ['Logan', 'Jack'],
               ['Mike', 'Alexander']
             ],
-            "answer": False
+            "answer": False,
+            "explanation": "Looks like Mike is stranger in Logan's family"
         }
+    ],
+    "Extra": [
+      {
+         "input": [
+            ['Logan', 'William'],
+            ['Logan', 'Jack'],
+            ['Mike', 'Mike']
+          ],
+          "answer": False,
+          "explanation": "Can you be a father for yourself?"
+      },
+      {
+         "input": [
+            ['Logan', 'William'],
+            ['William', 'Jack'],
+            ['Jack', 'Mike'],
+            ['Mike', 'Alexander']
+          ],
+          "answer": True,
+          "explanation": "Long family"
+      },
+      {
+         "input": [
+              ['Logan', 'William'],
+              ['Mike', 'Alexander'],
+              ['William', 'Alexander']
+          ],
+          "answer": False,
+          "explanation": "Who's Your Daddy?"
+      }
     ]
 }

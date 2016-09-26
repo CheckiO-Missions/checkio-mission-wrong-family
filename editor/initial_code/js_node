@@ -9,16 +9,16 @@ var assert = require('assert');
 if (!global.is_checking) {
     assert.equal(isFamily([
       ['Logan', 'Mike']
-    ]), true, 'one father, one son');
+    ]), true, 'One father, one son');
     assert.equal(isFamily([
       ['Logan', 'Mike'],
       ['Logan', 'Jack']
-    ]), true, 'two sons');
+    ]), true, 'Two sons');
     assert.equal(isFamily([
       ['Logan', 'Mike'],
       ['Logan', 'Jack'],
       ['Mike', 'Alexander']
-    ]), true, 'grant father');
+    ]), true, 'Grandfather');
     assert.equal(isFamily([
       ['Logan', 'Mike'],
       ['Logan', 'Jack'],
