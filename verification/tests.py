@@ -89,6 +89,15 @@ TESTS = {
           ],
           "answer": False,
           "explanation": "Who's Your Daddy?"
+      },
+      {
+         "input": [
+              ['Logan', 'Mike'],
+              ['Alexander', 'Jack'],
+              ['Jack', 'Alexander']
+          ],
+          "answer": False,
+          "explanation": "Can you be a father of your father?"
       }
     ]
 }
