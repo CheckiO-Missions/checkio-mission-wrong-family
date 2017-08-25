@@ -118,5 +118,14 @@ TESTS = {
           "answer": False,
           "explanation": "It's complex. You can not be a father of your grandfather and Alex is not in Logan's Family."   
       },
+      {
+          "input": [
+              ['Logan', 'Mike'],
+              ['Alexander', 'Jack'],
+              ['Mike', 'Alexander']
+          ],
+          "answer": True,
+          "explanation": "Grandfather, Father, Son."   
+      },
     ]
 }
