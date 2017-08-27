@@ -98,6 +98,34 @@ TESTS = {
           ],
           "answer": False,
           "explanation": "Can you be a father of your father?"
-      }
+      },
+      {
+          "input": [
+              ['Logan', 'Mike'],
+              ['Alexander', 'Jack'],
+              ['Jack', 'Logan']
+          ],
+          "answer": False,
+          "explanation": "Can you be a father of your grandfather?"   
+      },
+      {
+          "input": [
+              ['Logan', 'Mike'],
+              ['Alexander', 'Jack'],
+              ['Jack', 'Logan'],
+              ['Alex', 'Bob']
+          ],
+          "answer": False,
+          "explanation": "It's complex. You can not be a father of your grandfather and Alex is not in Logan's Family."   
+      },
+      {
+          "input": [
+              ['Logan', 'Mike'],
+              ['Alexander', 'Jack'],
+              ['Mike', 'Alexander']
+          ],
+          "answer": True,
+          "explanation": "Grandfather, Father, Son."   
+      },
     ]
 }
