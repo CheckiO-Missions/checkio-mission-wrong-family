@@ -105,7 +105,8 @@ TESTS = {
               ['Alexander', 'Jack'],
               ['Jack', 'Logan']
           ],
-          "answer": True
+          "answer": True,
+          "explanation": "Family connections can be listed in any directions"
       },
       {
           "input": [
