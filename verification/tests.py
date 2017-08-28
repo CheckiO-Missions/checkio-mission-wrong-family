@@ -105,8 +105,7 @@ TESTS = {
               ['Alexander', 'Jack'],
               ['Jack', 'Logan']
           ],
-          "answer": False,
-          "explanation": "Can you be a father of your grandfather?"   
+          "answer": True
       },
       {
           "input": [
