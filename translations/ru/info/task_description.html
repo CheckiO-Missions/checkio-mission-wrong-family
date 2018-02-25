@@ -1,0 +1,89 @@
+<div class="story">
+    <p>
+        Майкл всегда знал, что с его семьей что-то не так. Многих незнакомцев представляли ему как его родственников.
+    </p>
+
+    <p>
+        Майкл решил сам все выяснить. Около месяца он провел анализируя семейные архивы. Он собрал отцовско-сыновьи связи всей его семьи в одном месте.
+    </p>
+    
+    <p>
+        Имея всю эту информацию Майкл теперь может с легкостью определить, кем являются все эти незнакомцы. Или, все же, единственный посторонний в этой семье это сам Майкл? Давайте посмотрим.   
+    </p>
+</div>
+
+<p>
+    У Вас есть список семейных уз отцов и их сыновей. Каждый элемент этого списка имеет еще два элемента. Первым является имя отца, вторым - имя сына. Все имена в этой семье являются уникальными. Проверьте достоверно ли семейное древо, нет ли там посторонних и все ли связи являются естественными.
+</p>
+
+<p><strong>Входные данные: </strong>list of lists. Каждый элемент имеет две строки. В списке есть, как минимум, один элемент.</p>
+
+<p><strong>Выходные данные: </strong>bool. Достоверно ли семейное древо.</p>
+
+<p style="text-align: center;"><img src="{{MEDIA}}schema.png" style="max-height: 305px"></p>
+
+<div class="for_info_only">
+    <p><strong>Пример:</strong></p>
+<pre class="brush: python">{% if interpreter.slug == "js-node" %}
+isFamily([
+  ['Logan', 'Mike']
+]) == true
+isFamily([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack']
+]) == true
+isFamily([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Alexander']
+]) == true
+isFamily([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Logan']
+]) == false  // Можешь ли ты быть отцом своего отца?
+isFamily([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Jack']
+]) == false  // Можешь ли ты быть отцом своего брата?
+isFamily([
+  ['Logan', 'William'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Alexander']
+]) == false  // По свей видимости, Майк является посторонним в семье Логана
+{% else %}
+is_family([
+  ['Logan', 'Mike']
+]) == True
+is_family([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack']
+]) == True
+is_family([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Alexander']
+]) == True
+is_family([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Logan']
+]) == False  # Можешь ли ты быть отцом своего отца?
+is_family([
+  ['Logan', 'Mike'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Jack']
+]) == False  # Можешь ли ты быть отцом своего брата?
+is_family([
+  ['Logan', 'William'],
+  ['Logan', 'Jack'],
+  ['Mike', 'Alexander']
+]) == False  # По свей видимости, Майк является посторонним в семье Логана
+{% endif %}</pre>
+</div>
+<br />
+<p>
+    <strong>Предварительное условие:</strong>
+    <i>1 <= len(tree) < 100</i>
+</p>
