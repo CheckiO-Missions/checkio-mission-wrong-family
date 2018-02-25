@@ -1,23 +1,23 @@
 <div class="story">
     <p>
-        Michael always knew that there was something wrong with his family. Many strangers were introduced to him as part of his family.
+        Michael always knew that there was something wrong with his family. Many strangers were introduced to him as part of it.
     </p>
 
     <p>
-        Michael should figure this out. He spent almost a month parsing family archives. He has all father-son connections of his entire family collected in one place.
+        Michael should figure this out. He's spent almost a month parsing the family archives. He has all father-son connections of his entire family collected in one place.
     </p>
     <p>
-        With all that data Michel can easily understand who the strangers are. Or maybe the only stranger in this family is Michael? Let’s see.
+        With all that data Michael can easily understand who the strangers are. Or maybe the only stranger in this family is Michael? Let's see.
     </p>
 </div>
 
 <p>
-    You have a list of family relationships between father and son. Every element on this list has two elements. The first is the father's name, the second is a son’s name. All names in the family are unique. Check if the family tree is correct. There are no strangers in the family tree. All connections in the family are natural.
+    You have a list of family ties between father and son. Each element on this list has two elements. The first is the father's name, the second is the son's name. All names in the family are unique. Check if the family tree is correct. There are no strangers in the family tree. All connections in the family are natural.
 </p>
 
-<p><strong>Input: </strong>list of lists. Every element has two strings. List has at least one element</p>
+<p><strong>Input: </strong>list of lists. Each element has two strings. The list has at least one element</p>
 
-<p><strong>Output: </strong>bool. Is family tree correct.</p>
+<p><strong>Output: </strong>bool. Is the family tree correct.</p>
 
 <p style="text-align: center;"><img src="{{MEDIA}}schema.png" style="max-height: 305px"></p>
 
@@ -45,7 +45,7 @@ isFamily([
   ['Logan', 'Mike'],
   ['Logan', 'Jack'],
   ['Mike', 'Jack']
-]) == false  // Can you be a father for your brather?
+]) == false  // Can you be a father for your brother?
 isFamily([
   ['Logan', 'William'],
   ['Logan', 'Jack'],
@@ -78,7 +78,7 @@ is_family([
   ['Logan', 'William'],
   ['Logan', 'Jack'],
   ['Mike', 'Alexander']
-]) == False  # Looks like Mike is stranger in Logan's family
+]) == False  # Looks like Mike is a stranger in Logan's family
 {% endif %}</pre>
 </div>
 <br />
