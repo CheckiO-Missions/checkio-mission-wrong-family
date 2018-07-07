@@ -40,7 +40,7 @@ TESTS = {
               ['Mike', 'Logan']
             ],
             "answer": False,
-            "explanation": "Can you be a father for your father?"
+            "explanation": "Can you be a father to your father?"
         },
         {
             "input": [
@@ -49,7 +49,7 @@ TESTS = {
               ['Mike', 'Jack']
             ],
             "answer": False,
-            "explanation": "Can you be a father for your brather?"
+            "explanation": "Can you be a father to your brother?"
         },
         {
             "input": [
@@ -69,7 +69,7 @@ TESTS = {
             ['Mike', 'Mike']
           ],
           "answer": False,
-          "explanation": "Can you be a father for yourself?"
+          "explanation": "Can you be a father to yourself?"
       },
       {
          "input": [
@@ -97,7 +97,7 @@ TESTS = {
               ['Jack', 'Alexander']
           ],
           "answer": False,
-          "explanation": "Can you be a father of your father?"
+          "explanation": "Can you be a father to your father?"
       },
       {
           "input": [
@@ -116,7 +116,7 @@ TESTS = {
               ['Alex', 'Bob']
           ],
           "answer": False,
-          "explanation": "It's complex. You can not be a father of your grandfather and Alex is not in Logan's Family."   
+          "explanation": "It's complex. You can't be a father of your grandfather and Alex is not in Logan's Family."
       },
       {
           "input": [
@@ -125,7 +125,7 @@ TESTS = {
               ['Mike', 'Alexander']
           ],
           "answer": True,
-          "explanation": "Grandfather, Father, Son."   
+          "explanation": "Grandfather, Father, Son."
       },
     ]
 }

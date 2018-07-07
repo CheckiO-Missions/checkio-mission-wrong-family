@@ -23,12 +23,12 @@ if (!global.is_checking) {
       ['Logan', 'Mike'],
       ['Logan', 'Jack'],
       ['Mike', 'Logan']
-    ]), false, 'Can you be a father for your father?');
+    ]), false, 'Can you be a father to your father?');
     assert.equal(isFamily([
       ['Logan', 'Mike'],
       ['Logan', 'Jack'],
       ['Mike', 'Jack']
-    ]), false, 'Can you be a father for your brather?');
+    ]), false, 'Can you be a father to your brother?');
     assert.equal(isFamily([
       ['Logan', 'William'],
       ['Logan', 'Jack'],

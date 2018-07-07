@@ -21,12 +21,12 @@ if __name__ == "__main__":
       ['Logan', 'Mike'],
       ['Logan', 'Jack'],
       ['Mike', 'Logan']
-    ]) == False, 'Can you be a father for your father?'
+    ]) == False, 'Can you be a father to your father?'
     assert is_family([
       ['Logan', 'Mike'],
       ['Logan', 'Jack'],
       ['Mike', 'Jack']
-    ]) == False, 'Can you be a father for your brather?'
+    ]) == False, 'Can you be a father to your brother?'
     assert is_family([
       ['Logan', 'William'],
       ['Logan', 'Jack'],
