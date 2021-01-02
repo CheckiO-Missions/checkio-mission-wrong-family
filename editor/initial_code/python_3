@@ -1,5 +1,5 @@
 
-def is_family(tree):
+def is_family(tree: list[list[str]]) -> bool:
     return True
 
 
@@ -32,4 +32,9 @@ if __name__ == "__main__":
       ['Logan', 'Jack'],
       ['Mike', 'Alexander']
     ]) == False, 'Looks like Mike is stranger in Logan\'s family'
+    assert is_family([
+      ['Jack', 'Mike'],
+      ['Logan',  'Mike'],
+      ['Logan', 'Jack'],
+    ]) == False, 'Two fathers'
     print("Looks like you know everything. It is time for 'Check'!")

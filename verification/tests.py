@@ -59,6 +59,15 @@ TESTS = {
             ],
             "answer": False,
             "explanation": "Looks like Mike is stranger in Logan's family"
+        },
+        {
+            "input": [
+              ['Jack', 'Mike'],
+              ['Logan',  'Mike'],
+              ['Logan', 'Jack'],
+            ],
+            "answer": False,
+            "explanation": "Looks like Mike has two fathers"
         }
     ],
     "Extra": [

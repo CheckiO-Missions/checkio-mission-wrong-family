@@ -23,6 +23,11 @@ assert.equal(isFamily([['Logan', 'Mike'],
 assert.equal(isFamily([['Logan', 'William'],
  ['Logan', 'Jack'],
  ['Mike', 'Alexander']]), false);
+assert.equal(isFamily([
+      ['Jack', 'Mike'],
+      ['Logan',  'Mike'],
+      ['Logan', 'Jack'],
+    ]), false);
 
 console.log("Coding complete? Click 'Check' to earn cool rewards!");
     
