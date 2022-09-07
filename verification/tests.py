@@ -10,129 +10,129 @@ Each test is dict with
 TESTS = {
     "Basics": [
         {
-            "input": [
+            "input": [[
               ['Logan', 'Mike']
-            ],
+            ]],
             "answer": True,
             "explanation": "One father, one son"
         },
         {
-            "input": [
+            "input": [[
               ['Logan', 'Mike'],
               ['Logan', 'Jack']
-            ],
+            ]],
             "answer": True,
             "explanation": "Two sons"
         },
         {
-            "input": [
+            "input": [[
               ['Logan', 'Mike'],
               ['Logan', 'Jack'],
               ['Mike', 'Alexander']
-            ],
+            ]],
             "answer": True,
             "explanation": "Grandfather"
         },
         {
-            "input": [
+            "input": [[
               ['Logan', 'Mike'],
               ['Logan', 'Jack'],
               ['Mike', 'Logan']
-            ],
+            ]],
             "answer": False,
             "explanation": "Can you be a father to your father?"
         },
         {
-            "input": [
+            "input": [[
               ['Logan', 'Mike'],
               ['Logan', 'Jack'],
               ['Mike', 'Jack']
-            ],
+            ]],
             "answer": False,
             "explanation": "Can you be a father to your brother?"
         },
         {
-            "input": [
+            "input": [[
               ['Logan', 'William'],
               ['Logan', 'Jack'],
               ['Mike', 'Alexander']
-            ],
+            ]],
             "answer": False,
             "explanation": "Looks like Mike is stranger in Logan's family"
         },
         {
-            "input": [
+            "input": [[
               ['Jack', 'Mike'],
               ['Logan',  'Mike'],
               ['Logan', 'Jack'],
-            ],
+            ]],
             "answer": False,
             "explanation": "Looks like Mike has two fathers"
         }
     ],
     "Extra": [
       {
-         "input": [
+         "input": [[
             ['Logan', 'William'],
             ['Logan', 'Jack'],
             ['Mike', 'Mike']
-          ],
+          ]],
           "answer": False,
           "explanation": "Can you be a father to yourself?"
       },
       {
-         "input": [
+         "input": [[
             ['Logan', 'William'],
             ['William', 'Jack'],
             ['Jack', 'Mike'],
             ['Mike', 'Alexander']
-          ],
+          ]],
           "answer": True,
           "explanation": "Long family"
       },
       {
-         "input": [
+         "input": [[
               ['Logan', 'William'],
               ['Mike', 'Alexander'],
               ['William', 'Alexander']
-          ],
+          ]],
           "answer": False,
           "explanation": "Who's Your Daddy?"
       },
       {
-         "input": [
+         "input": [[
               ['Logan', 'Mike'],
               ['Alexander', 'Jack'],
               ['Jack', 'Alexander']
-          ],
+          ]],
           "answer": False,
           "explanation": "Can you be a father to your father?"
       },
       {
-          "input": [
+          "input": [[
               ['Logan', 'Mike'],
               ['Alexander', 'Jack'],
               ['Jack', 'Logan']
-          ],
+          ]],
           "answer": True,
           "explanation": "Family connections can be listed in any directions"
       },
       {
-          "input": [
+          "input": [[
               ['Logan', 'Mike'],
               ['Alexander', 'Jack'],
               ['Jack', 'Logan'],
               ['Alex', 'Bob']
-          ],
+          ]],
           "answer": False,
           "explanation": "It's complex. You can't be a father of your grandfather and Alex is not in Logan's Family."
       },
       {
-          "input": [
+          "input": [[
               ['Logan', 'Mike'],
               ['Alexander', 'Jack'],
               ['Mike', 'Alexander']
-          ],
+          ]],
           "answer": True,
           "explanation": "Grandfather, Father, Son."
       },
