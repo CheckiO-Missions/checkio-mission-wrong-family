@@ -15,7 +15,8 @@
     You have a list of family ties between father and son. Each element on this list has two elements. The first is the father's name, the second is the son's name. All names in the family are unique. Check if the family tree is correct. There are no strangers in the family tree. All connections in the family are natural.
 </p>
 
-<p><strong>Input: </strong>List of lists. Each element has two strings. The list has at least one element</p>
+<p><strong>Input: </strong>{% if is_js %}An array of arrays{% else %}A list of lists{% endif %}. Each element has two strings.
+    The {% if is_js %}array{% else %}list{% endif %} has at least one element</p>
 
 <p><strong>Output: </strong>Bool. Is the family tree correct.</p>
 
