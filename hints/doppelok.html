@@ -1,0 +1,109 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        I don't know how to start solving this mission
+    </div>
+    <div class="answer">
+        The problem is that you need to gradually check the family tree (which consists of lists of family connections)
+        for various false combinations. For example, such as: a son became the father of his father, a brother became
+        the father of his brother, an outsider appeared in the family (an outsider is when his name does not appear in
+        the lists of family ties to him), one son has several parents , different parents have one son, etc.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need help to continue the mission
+    </div>
+    <div class="answer">
+        We will use the for loop and if conditions for our solution. Let's create a loop in which we will
+        check such false connections as: the son has more than one father, the son became the father of his father.
+        Let's add two variables, and the code will be as follows:
+        <pre class="brush: python">
+dads = []
+sons = []
+for dad, son in tree:  # We iterate through this list
+    dads += [dad]  # We add the first father to the dads variable
+    if son in sons:  # We check that there is no such son in the sons variable
+        return False  # If there was, we return False
+    sons += [son]  # If it wasn't, then we add the son to the list of sons
+    if [son, dad] in tree:  # We check whether the son has become the father of his father
+        return False  # If so, then we return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Need help!
+    </div>
+    <div class="answer">
+        Let's add another check for the fact that someone else has appeared in the family. Let's use the new
+        variable fatherless and write our check with a for loop. The code will be as follows:
+        <pre class="brush: python">
+fatherless = 0
+for dad in set(dads):  # We iterate through the list of parents
+            # with set() we reduced the repetition of the father's name
+    if dad not in sons:  # Every time as a father in the list of sons
+        fatherless += 1  # we add 1 to the variable
+        if fatherless > 1:  # Since we have the first father who started a family
+            return False  # then we do not take him into account, but if another father appears
+            # which starts a new family, then we return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I don't want to give up, help!
+    </div>
+    <div class="answer">
+        You have a few things left. It wraps the code in a function expression, and returns
+        True if all checks pass and the family tree is indeed correct.
+        <pre class="brush: python">
+def is_family(tree: list[list[str]]) -> bool:
+    dads = []
+    sons = []
+
+    for dad, son in tree:
+        dads += [dad]
+        if son in sons:
+            return False
+        sons += [son]
+        if [son, dad] in tree:
+            return False
+
+    fatherless = 0
+    for dad in set(dads):
+        if dad not in sons:
+            fatherless += 1
+            if fatherless > 1:
+                return False
+
+    return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I want to be the best of the best PROGRAMMERS!!! SHOW ME MORE SOLUTIONS!!1!!!11!
+    </div>
+    <div class="answer">
+        Okay, okay! That's the spirit!=)
+        This decision will be difficult to understand. A module <a href='https://docs.python.org/3.10/library/collections.html?highlight=collections#module-collections'>"collections"</a>
+        is used here.
+        The defaultdict dictionaries from this module can emulate different data types, in this case it is set.
+        So using the properties of sets, we can check all false relationships in the family tree in a single for loop.
+        <pre class="brush: python">
+from collections import defaultdict
+
+def is_family(tree):
+    anscestor = defaultdict(set)
+    for father, son in tree:
+        if father == son: return False
+        if father in anscestor[son]: return False
+        if son in anscestor[father]: return False
+        if anscestor[father] & anscestor[son]: return False
+        anscestor[son] |= {father} | anscestor[father]
+    adam = [person for person in anscestor if not anscestor[person]]
+    return len(adam) == 1
+        </pre>
+    </div>
+</div>

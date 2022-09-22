@@ -1,0 +1,111 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Я не знаю, як розпочати вирішення цієї місії
+    </div>
+    <div class="answer">
+        Задача в тому, що потрібно поступово перевірити дерево сім'ї (яке складається зі списків сімейних зв'язків) на різні хибні комбінації. Наприклад такі як:
+        син став батьком свого батька, брат являється батьком своєму брату, в сім'ї з'явився сторонній
+        (сторонній, це коли його ім'я не зустрічається в списках сімейних зв'язків до нього), в одного сина декілька батьків, в різних батьків один син і т.д.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Мені потрібна допомога, щоб продовжити місію
+    </div>
+    <div class="answer">
+        Використаємо цикл for і умови if для свого розв'язку. Для початку давай створемо цикл, в якому будемо перевіряти
+        такі хибні зв'язки як: у сина більше одного батька, син став батьком свого батька. Додамо дві змінних, та код буде наступним:
+        <pre class="brush: python">
+dads = []
+sons = []
+for dad, son in tree:  # Ітеруємося по даному списку
+    dads += [dad]  # Додаємо до змінної dads першого батька
+    if son in sons:  # Перевіряємо, щоб у змінній sons не було ще такого сина
+        return False  # Якщо був, то повертаємо False
+    sons += [son]  # Якщо ж не було, то додаємо сина до списку sons
+    if [son, dad] in tree:  # Перевіряємо на те, чи син став батьком свого батька
+        return False  # Якщо так, то повертаємо False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Потрібна допомога!
+    </div>
+    <div class="answer">
+        Давай додамо ще перевірку на те, що в сім'ї з'явився хтось лишній. Використаємо нову змінну fatherless та запишемо
+        нашу перевірку циклом for. Код буде наступний:
+        <pre class="brush: python">
+fatherless = 0
+for dad in set(dads):  # Ітеруємося по списку батьків
+            # за допомогою set() ми скоротили повторення імені батька
+    if dad not in sons:  # Кожного разу як батько в списку синів
+        fatherless += 1  # ми додаємо до змінної 1
+        if fatherless > 1:  # Так як в нас є перший батько, який розпочав сім'ю
+            return False  # то ми його не враховуємо, але якщо з'явиться ще один батько
+            який розпочинає нову сім'ю, то повертаємо False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Не хочу здаватись, допоможи!
+    </div>
+    <div class="answer">
+        Тобі залишилось декілька речей. Це обгорнути код у вираз функції, та повернути True, якщо всі перевірки пройшли успішно
+        і сімейне дерево дійсно вірне.
+        <pre class="brush: python">
+def is_family(tree: list[list[str]]) -> bool:
+    dads = []
+    sons = []
+
+    for dad, son in tree:
+        dads += [dad]
+        if son in sons:
+            return False
+        sons += [son]
+        if [son, dad] in tree:
+            return False
+
+    fatherless = 0
+    for dad in set(dads):
+        if dad not in sons:
+            fatherless += 1
+            if fatherless > 1:
+                return False
+
+    return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я хочу бути кращим з кращих ПРОГРАМІСТІВ!!! ПОКАЖИ МЕНІ БІЛЬШЕ РІШЕНЬ!!1!!!11!
+    </div>
+    <div class="answer">
+        Добре, добре! Оце настрій!=)
+        Це рішення буде важкувато зрозуміти. Тут використовують модуль
+        <a href='https://docs.python.org/3.10/library/collections.html?highlight=collections#module-collections'>"collections"</a> .
+        Словники defaultdict з цього модулю можуть наслідувати різні типи даних, в цьому випадку це set. Тож використовуючи властивості множин, ми можемо
+        за один цикл for перевірити всі хибні зв'язки в сімейному дереві.
+        <pre class="brush: python">
+from collections import defaultdict
+
+def is_family(tree):
+    anscestor = defaultdict(set)
+    for father, son in tree:
+        if father == son: return False
+        if father in anscestor[son]: return False
+        if son in anscestor[father]: return False
+        if anscestor[father] & anscestor[son]: return False
+        anscestor[son] |= {father} | anscestor[father]
+    adam = [person for person in anscestor if not anscestor[person]]
+    return len(adam) == 1
+        </pre>
+    </div>
+</div>
+
+
+
+</body>
