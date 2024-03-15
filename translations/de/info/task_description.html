@@ -1,0 +1,34 @@
+<div class="story">
+    <p>
+        Michael wusste immer, dass mit seiner Familie etwas nicht stimmte. Viele Fremde wurden ihm als Teil davon vorgestellt.
+    </p>
+
+    <p>
+        Michael sollte das herausfinden. Er hat fast einen Monat damit verbracht, die Familienarchive zu durchforsten. Er hat alle Vater-Sohn-Verbindungen seiner gesamten Familie an einem Ort gesammelt.
+    </p>
+    <p>
+        Mit all diesen Daten kann Michael leicht verstehen, wer die Fremden sind. Oder ist vielleicht der einzige Fremde in dieser Familie Michael? Schauen wir mal.
+    </p>
+</div>
+
+<p>
+    Sie haben eine Liste der Familienbande zwischen Vater und Sohn. Jedes Element auf dieser Liste hat zwei Elemente. Das erste ist der Name des Vaters, das zweite ist der Name des Sohnes. Alle Namen in der Familie sind eindeutig. Überprüfen Sie, ob der Stammbaum korrekt ist. Es gibt keine Fremden im Stammbaum. Alle Verbindungen in der Familie sind natürlich.
+</p>
+
+<p><strong>Eingabe: </strong>{% if is_js %}Ein Array von Arrays{% else %}Eine Liste von Listen{% endif %}. Jedes Element hat zwei Strings.
+    Das Array {% if is_js %}{% else %} Liste{% endif %} hat mindestens ein Element</p>
+
+<p><strong>Ausgabe: </strong>Bool. Ist der Stammbaum korrekt.</p>
+
+<p style="text-align: center;"><img src="{{MEDIA}}schema.png" style="max-height: 305px"></p>
+
+<div class="for_info_only">
+    <p><strong>Beispiel:</strong></p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+</div>
+<br />
+<p>
+    <strong>Vorbedingung:</strong>
+    <i>1 &lt;= len(Baum) &lt; 100</i>
+</p>
