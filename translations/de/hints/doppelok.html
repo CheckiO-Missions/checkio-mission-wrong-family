@@ -1,0 +1,109 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Ich weiß nicht, wie ich mit der Lösung dieser Mission beginnen soll
+    </div>
+    <div class="answer">
+        Das Problem ist, dass Sie den Familienstammbaum (der aus Listen von Familienverbindungen besteht) nach und nach auf verschiedene falsche Kombinationen überprüfen müssen
+        auf verschiedene falsche Kombinationen überprüfen. Zum Beispiel: ein Sohn wurde der Vater seines Vaters, ein Bruder wurde der Vater seines Bruders
+        der Vater seines Bruders, ein Außenseiter tauchte in der Familie auf (ein Außenseiter ist, wenn sein Name nicht in den
+        den Listen der Familienbande zu ihm auftaucht), ein Sohn hat mehrere Eltern, verschiedene Eltern haben einen Sohn, usw.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich brauche Hilfe, um die Mission fortzusetzen
+    </div>
+    <div class="answer">
+        Wir werden die for-Schleife und if-Bedingungen für unsere Lösung verwenden. Lassen Sie uns eine Schleife erstellen, in der wir
+        falsche Verbindungen prüfen, wie: der Sohn hat mehr als einen Vater, der Sohn wurde der Vater seines Vaters.
+        Fügen wir zwei Variablen hinzu, so sieht der Code wie folgt aus:
+       <pre class="brush: python">
+dads = []
+sons = []
+for dad, son in tree:  # We iterate through this list
+    dads += [dad]  # We add the first father to the dads variable
+    if son in sons:  # We check that there is no such son in the sons variable
+        return False  # If there was, we return False
+    sons += [son]  # If it wasn't, then we add the son to the list of sons
+    if [son, dad] in tree:  # We check whether the son has become the father of his father
+        return False  # If so, then we return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich brauche Hilfe!
+    </div>
+    <div class="answer">
+        Fügen wir eine weitere Prüfung für die Tatsache hinzu, dass jemand anderes in der Familie aufgetaucht ist. Verwenden wir die neue
+        variable fatherless und schreiben unsere Prüfung mit einer for-Schleife. Der Code sieht dann wie folgt aus:
+       <pre class="brush: python">
+fatherless = 0
+for dad in set(dads):  # We iterate through the list of parents
+            # with set() we reduced the repetition of the father's name
+    if dad not in sons:  # Every time as a father in the list of sons
+        fatherless += 1  # we add 1 to the variable
+        if fatherless> 1:  # Since we have the first father who started a family
+            return False  # then we do not take him into account, but if another father appears
+            # which starts a new family, then we return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich will nicht aufgeben, Hilfe!
+    </div>
+    <div class="answer">
+        Sie haben noch ein paar Dinge übrig. Es verpackt den Code in einen Funktionsausdruck und gibt
+        True zurück, wenn alle Prüfungen erfolgreich waren und der Stammbaum tatsächlich korrekt ist.
+       <pre class="brush: python">
+def is_family(tree: list[list[str]]) -> bool:
+    dads = []
+    sons = []
+
+    for dad, son in tree:
+        dads += [dad]
+        if son in sons:
+            return False
+        sons += [son]
+        if [son, dad] in tree:
+            return False
+
+    fatherless = 0
+    for dad in set(dads):
+        if dad not in sons:
+            fatherless += 1
+            if fatherless> 1:
+                return False
+
+    return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich möchte der beste der besten PROGRAMMIERER werden!!! ZEIGEN SIE MIR MEHR LÖSUNGEN!!!1!!!11!
+    </div>
+    <div class="answer">
+        Okay, okay! Das ist die richtige Einstellung!=)
+        Diese Entscheidung wird schwer zu verstehen sein. Ein Modul <a href='https://docs.python.org/3.10/library/collections.html?highlight=collections#module-collections'>"collections"</a>
+        wird hier verwendet.
+        Die Standarddictionaries aus diesem Modul können verschiedene Datentypen emulieren, in diesem Fall ist es Set.
+        Mithilfe der Eigenschaften von Sets können wir also alle falschen Beziehungen im Stammbaum in einer einzigen for-Schleife überprüfen.
+       <pre class="brush: python">
+from collections import defaultdict
+
+def is_family(tree):
+    anscestor = defaultdict(set)
+    for father, son in tree:
+        if father == son: return False
+        if father in anscestor[son]: return False
+        if son in anscestor[father]: return False
+        if anscestor[father] & anscestor[son]: return False
+        anscestor[son] |= {father} | anscestor[father]
+    adam = [person for person in anscestor if not anscestor[person]]
+    return len(adam) == 1
+        </pre>
+    </div>
+</div>
